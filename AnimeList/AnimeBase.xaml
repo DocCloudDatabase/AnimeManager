@@ -1,0 +1,14 @@
+﻿<UserControl x:Class="AnimeManager.AnimeBase"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             Height="35" Width="434">
+    <Grid>
+        <Label x:Name="SerieName" Content="Label" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top" Width="210"/>
+        <Label x:Name="SerieEps" Content="Label" HorizontalAlignment="Left" Margin="220,5,0,0" VerticalAlignment="Top" Width="36"/>
+        <Label x:Name="SerieType" Content="Label" HorizontalAlignment="Left" Margin="261,5,0,0" VerticalAlignment="Top" Width="65"/>
+        <Label x:Name="SerieStatus" Content="Label" HorizontalAlignment="Left" Margin="331,5,0,0" VerticalAlignment="Top" Width="99"/>
+    </Grid>
+</UserControl>
