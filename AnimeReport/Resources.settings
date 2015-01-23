@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="AnimeReport" GeneratedClassName="Resources">
+  <Profiles />
+  <Settings>
+    <Setting Name="list_Status" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">0.1.0;Lista dei possibili stati di un record; 30/12/2014;Start at 1,Completed, Stall, Planning, Searching, In Direct, In Torrent, Waiting, To Move, To Transfer</Value>
+    </Setting>
+    <Setting Name="img_folder" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">./imgs/</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

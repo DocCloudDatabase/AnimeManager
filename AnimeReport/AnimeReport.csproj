@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{99DF62F4-14B7-4D2F-A935-91DB0AE7217B}</ProjectGuid>
+    <ProjectGuid>{E9FA7155-FED3-4069-8BE7-181AD7631164}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AnimeManager</RootNamespace>
-    <AssemblyName>AnimeManager</AssemblyName>
+    <RootNamespace>AnimeReport</RootNamespace>
+    <AssemblyName>AnimeReport</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -34,13 +34,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ConsoleLogger">
-      <HintPath>..\..\..\..\..\Box Sync\My Documents\Projects\RegexBuilder\ConsoleLogger\bin\Debug\ConsoleLogger.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -58,19 +53,40 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Resources.settings</DependentUpon>
+    </Compile>
+    <Compile Include="subelements\ReportRecord.cs" />
+    <Compile Include="subelements\ReportRow.xaml.cs">
+      <DependentUpon>ReportRow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Report.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Report.xaml.cs">
+      <DependentUpon>Report.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="subelements\ReportRow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="core\Anime.cs" />
-    <Compile Include="core\AnimEngine.cs" />
-    <Compile Include="Elements\SerieAnime.cs" />
-    <Compile Include="Interfacce\aSerie.cs" />
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -93,21 +109,49 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Resources.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="MainWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
+    <Resource Include="imgs\Access.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AnimeList\AnimeList.csproj">
-      <Project>{57f330a5-7bd5-40f0-bd65-603f940dea6d}</Project>
-      <Name>AnimeList</Name>
+    <ProjectReference Include="..\..\..\..\..\Box Sync\My Documents\Projects\MyLibrary\MyLibrary.csproj">
+      <Project>{3389c3dc-a017-42f3-ad97-8d7b3c4fade1}</Project>
+      <Name>MyLibrary</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="imgs\BackGround.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="imgs\Confirm_In.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="imgs\Confirm_Out.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="imgs\Exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="imgs\AddButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="imgs\Load.png" />
+    <Resource Include="imgs\Save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="imgs\Denied.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="core\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

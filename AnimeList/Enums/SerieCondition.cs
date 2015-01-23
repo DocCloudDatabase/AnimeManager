@@ -81,7 +81,7 @@ namespace AnimeManager.Enums
             {
                 return condizioni[condition];
             }catch(IndexOutOfRangeException){
-                return "";
+                return "Something went wrong";
             }
         }
     }

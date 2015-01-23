@@ -48,6 +48,8 @@
     </Compile>
     <Compile Include="Enums\AnimeType.cs" />
     <Compile Include="Enums\SerieCondition.cs" />
+    <Compile Include="Multimedia\MStatic\IStatic.cs" />
+    <Compile Include="Multimedia\MStatic\MImage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -55,6 +57,12 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\Box Sync\My Documents\Projects\MyLibrary\MyLibrary.csproj">
+      <Project>{3389c3dc-a017-42f3-ad97-8d7b3c4fade1}</Project>
+      <Name>MyLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

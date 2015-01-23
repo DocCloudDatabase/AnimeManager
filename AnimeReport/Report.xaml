@@ -1,0 +1,197 @@
+﻿<Window x:Class="AnimeReport.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="580" Width="720" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" AllowsTransparency="True">
+    <Window.Background>
+        <ImageBrush ImageSource="imgs/BackGround.png"/>
+    </Window.Background>
+
+
+    <Grid Width="720" Height="580">
+        <Grid MouseLeftButtonDown="LetsMove" x:Name="MovePanel" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-1,0,0,0" Width="541" Height="75">
+            <Button Content="" HorizontalAlignment="Left" Height="72" Margin="3,1,0,0" VerticalAlignment="Top" Width="72" BorderThickness="0" Click="LetsAdd" Foreground="{x:Null}" BorderBrush="{x:Null}" Focusable="False" Style="{DynamicResource border}" >
+                <Button.Resources>
+                    <Style x:Key="FocusVisual">
+                        <Setter Property="Control.Template">
+                            <Setter.Value>
+                                <ControlTemplate>
+                                    <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                    <ImageBrush x:Key="Button.Standard.Background" ImageSource="/AnimeReport;component/imgs/AddButton.png"/>
+                    <Style x:Key="border" TargetType="{x:Type Button}">
+                        <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+                        <Setter Property="Background" Value="{StaticResource Button.Standard.Background}"/>
+                        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                        <Setter Property="BorderThickness" Value="1"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                        <Setter Property="Padding" Value="1"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                                        <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsDefaulted" Value="true">
+                                            <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                        </Trigger>
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Standard.Background}"/>
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="true">
+                                            <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Standard.Background}"/>
+                                        </Trigger>
+                                        <Trigger Property="IsEnabled" Value="false">
+                                            <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Standard.Background}"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Resources>
+                <Button.Background>
+                    <ImageBrush ImageSource="/AnimeReport;component/imgs/AddButton.png" Stretch="Uniform" />
+                </Button.Background>
+            </Button>
+            <Button Content="" HorizontalAlignment="Left" Height="72" Margin="640,1,-171,0" VerticalAlignment="Top" Width="72" Click="LetsExit" BorderThickness="0" BorderBrush="{x:Null}" Foreground="{x:Null}" Focusable="False" Style="{DynamicResource Border}">
+                <Button.Resources>
+                    <Style x:Key="FocusVisual">
+                        <Setter Property="Control.Template">
+                            <Setter.Value>
+                                <ControlTemplate>
+                                    <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                    <ImageBrush x:Key="Button.Standard.Background" ImageSource="/AnimeReport;component/imgs/Exit.png"/>
+                    <Style x:Key="Border" TargetType="{x:Type Button}">
+                        <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+                        <Setter Property="Background" Value="{StaticResource Button.Standard.Background}"/>
+                        <Setter Property="BorderBrush" Value="{x:Null}"/>
+                        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                        <Setter Property="BorderThickness" Value="1"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                        <Setter Property="Padding" Value="1"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                                        <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsDefaulted" Value="true">
+                                            <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                        </Trigger>
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Standard.Background}"/>
+                                            <Setter Property="BorderBrush" TargetName="border" Value="{x:Null}"/>
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="true">
+                                            <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Standard.Background}"/>
+                                            <Setter Property="BorderBrush" TargetName="border" Value="{x:Null}"/>
+                                        </Trigger>
+                                        <Trigger Property="IsEnabled" Value="false">
+                                            <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Standard.Background}"/>
+                                            <Setter Property="BorderBrush" TargetName="border" Value="{x:Null}"/>
+                                            <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{x:Null}"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Resources>
+                <Button.Background>
+                    <ImageBrush ImageSource="/AnimeReport;component/imgs/Exit.png" Stretch="Uniform" />
+                </Button.Background>
+            </Button>
+            <Button Content="" HorizontalAlignment="Left" Height="72" Margin="75,1,0,0" VerticalAlignment="Top" Width="120" BorderThickness="0" Style="{DynamicResource Border}">
+                <Button.Resources>
+                    <Style x:Key="FocusVisual">
+                        <Setter Property="Control.Template">
+                            <Setter.Value>
+                                <ControlTemplate>
+                                    <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+
+                    <ImageBrush x:Key="Button.Static.Background" ImageSource="/AnimeReport;component/imgs/Save.png" Stretch="Uniform" />
+                    
+                    <Style x:Key="Border" TargetType="{x:Type Button}">
+                        <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+                        <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+                        <Setter Property="BorderBrush" Value="{x:Null}"/>
+                        <Setter Property="Foreground" Value="{x:Null}"/>
+                        <Setter Property="BorderThickness" Value="1"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                        <Setter Property="Padding" Value="1"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                                        <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button Click="Button_Click" Content="" HorizontalAlignment="Left" Height="72" Margin="200,1,0,0" VerticalAlignment="Top" Width="120" BorderThickness="0" Style="{DynamicResource Border}">
+                <Button.Resources>
+                    <Style x:Key="FocusVisual">
+                        <Setter Property="Control.Template">
+                            <Setter.Value>
+                                <ControlTemplate>
+                                    <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+
+                    <ImageBrush x:Key="Button.Static.Background" ImageSource="/AnimeReport;component/imgs/Load.png" Stretch="Uniform" />
+
+                    <Style x:Key="Border" TargetType="{x:Type Button}">
+                        <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+                        <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+                        <Setter Property="BorderBrush" Value="{x:Null}"/>
+                        <Setter Property="Foreground" Value="{x:Null}"/>
+                        <Setter Property="BorderThickness" Value="1"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                        <Setter Property="Padding" Value="1"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                                        <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </Grid>
+        <WrapPanel x:Name="MainContainer" VerticalAlignment="Top" Width="720" Height="456" Margin="0,75,0,0" Background="Gray">
+
+        </WrapPanel>
+        <StatusBar HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Margin="0,538,0,0"  Width="720" >
+            <StatusBarItem Content="All Green!" Height="32" VerticalAlignment="Top" Width="250"/>
+            <StatusBarItem>
+                <ProgressBar x:Name="op_Progress" Value="0" Width="100" Height="20" Visibility="Hidden"/>
+            </StatusBarItem>
+        </StatusBar>
+
+    </Grid>
+</Window>
